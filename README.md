@@ -99,6 +99,9 @@ public class Datas
             // Veritabanı işlemleri yapılabilir
         }
 
+    // ResultData = Yönlendirme yapacağımız sayfa urlsini yazabiliriz.
+
+    //1. Yöntem
         if (!result.IsSuccess)
         {
             foreach (var item in result.ErrorMessages)
@@ -109,14 +112,22 @@ public class Datas
         }
         else
         {
-            model.Status.ResultData = "";
+            model.Status.ResultData = "/Datas";
         }
+    
+    //2.Yöntem
+        model.ReturnStatusJson(result, "/Datas");
 
         return model.StatusJson;
     }
 }
 
 ViewModel sınıfı ise statü yönetimi, işlemlerin sonucunda JSON formatında cevap üretir.
+
+public class VMModel:ViewModelBase
+{
+     //Props
+}
 
 public class ViewModelBase
 {
